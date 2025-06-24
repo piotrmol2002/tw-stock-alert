@@ -45,15 +45,15 @@ services:
       - DATABASE_URL=postgresql://postgres:password@db:5432/inventory
       - CELERY_BROKER_URL=redis://redis:6379/0
 
-  # frontend:
-  #   build: ./frontend
-  #   command: npm start
-  #   volumes:
-  #     - ./frontend:/app
-  #   ports:
-  #     - "3000:3000"
-  #   depends_on:
-  #     - backend
+  frontend:
+     build: ./frontend
+     command: npm start
+     volumes:
+       - ./frontend:/app
+     ports:
+       - "3000:3000"
+     depends_on:
+       - backend
 
 volumes:
   db_data:
